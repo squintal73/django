@@ -5,18 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Listagem -  VMC Django </title>
 </head>
 <body>
-<h1>Seja bem vindo</h1>
+<h2> Listagem </h2>
+<ul>
+    {% for transacao in transacoes %}
+    <li><a href="{% url 'url_update' transacao.id %}"> {{ transacao.descricao }} </a></li>
+{% endfor %}
 
-   <ul>
-      {% for transacao in transacoes %}
-        <p> Lista : {{ transacao }} </p>
-       {% endfor %}
-   </ul>
-
-
-
+</ul>
+<a href="{% url 'url_nova'%}">Criar</a>
 </body>
 </html>

@@ -5,18 +5,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Formulario</title>
 </head>
 <body>
-<h1>Seja bem vindo</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p  }}
 
-   <ul>
-      {% for transacao in transacoes %}
-        <p> Lista : {{ transacao }} </p>
-       {% endfor %}
-   </ul>
-
-
+    <button type="submit">Salvar</button>
+    {% if transacao %}
+        <a href="{% url 'url_delete' obj_id.id %}">Remover</a>
+    {% endif %}
+</form>
 
 </body>
 </html>
